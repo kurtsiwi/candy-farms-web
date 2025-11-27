@@ -7,7 +7,9 @@ const { activeLink = "/" } = Astro.props;
 
 const links = [{ href: "/contact", label: "Hazte miembro" }];
 
-const isHome = activeLink !== "/";
+const currentPath = new URL(Astro.request.url).pathname;
+
+const isHome = currentPath !== "/";
 ---
 
 {
