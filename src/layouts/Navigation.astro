@@ -6,27 +6,34 @@ interface Props {
 const { activeLink = "/" } = Astro.props;
 
 const links = [{ href: "/contact", label: "Hazte miembro" }];
+
+const isHome = activeLink !== "/";
 ---
 
-<nav class="navbar">
-  <div class="navbar-container">
-    <a href="/" class="navbar-logo"> Candy Farms </a>
-    <ul class="nav-menu">
-      {
-        links.map((link) => (
-          <li class="nav-item">
-            <a
-              href={link.href}
-              class={`nav-link ${activeLink === link.href ? "active" : ""}`}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</nav>
+{
+  isHome && (
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+          {" "}
+          Candy Farms{" "}
+        </a>
+        <ul class="nav-menu">
+          {links.map((link) => (
+            <li class="nav-item">
+              <a
+                href={link.href}
+                class={`nav-link ${activeLink === link.href ? "active" : ""}`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
+}
 
 <style>
   .navbar {
