@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navigation from "../layouts/Navigation.astro";
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import "../styles/global.css";
     <title>Candy Farms</title>
   </head>
   <body>
+    <Navigation activeLink={Astro.props.activeLink} />
     <slot />
   </body>
 </html>

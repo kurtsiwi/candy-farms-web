@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 - Página no encontrada">
+  <main>
+    <div class="error-container">
+      <h1>404</h1>
+      <p>Página no encontrada</p>
+      <a href="/">Volver al inicio</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .error-container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    color: #ff6b6b;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #666;
+    margin: 1rem 0;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s;
+  }
+
+  a:hover {
+    background-color: #0056b3;
+  }
+</style>

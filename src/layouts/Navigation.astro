@@ -1,0 +1,72 @@
+---
+interface Props {
+  activeLink?: string;
+}
+
+const { activeLink = "/" } = Astro.props;
+
+const links = [{ href: "/contact", label: "Hazte miembro" }];
+---
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-logo"> Candy Farms </a>
+    <ul class="nav-menu">
+      {
+        links.map((link) => (
+          <li class="nav-item">
+            <a
+              href={link.href}
+              class={`nav-link ${activeLink === link.href ? "active" : ""}`}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background-color: #333;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #ffd700;
+  }
+</style>
